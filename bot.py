@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 # Loading env file
 load_dotenv('.env')
 
-API_KEY = os.getenv('API_KEY')
+API_KEY = os.getenv('UTIL_API_KEY')
 
 GENDER, PHOTO, LOCATION, BIO, SELECT_TYPE, PIN, DISTRICT_RESULT, PIN_RESULT, RESTART, QR_CODE_TEXT_INPUT, PIN_INPUT = range(
     11)
