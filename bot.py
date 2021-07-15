@@ -104,7 +104,7 @@ def main() -> None:
                 Filters.regex('^(/qrcode)$'),
                 qr_code_text_dialogue
             )],
-            QR_CODE_TEXT_INPUT: [MessageHandler(Filters.regex('^[a-zA-Z ]+$'), qr_code_response)],
+            QR_CODE_TEXT_INPUT: [MessageHandler(Filters.all, qr_code_response)],
         },
         allow_reentry=True,
         fallbacks=[CommandHandler('stop', cancel)],
