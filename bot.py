@@ -61,7 +61,7 @@ def qr_code_response(update: Update, _: CallbackContext) -> int:
         pass
     remove_file(file_name)
 
-    return ConversationHandler.END
+    return SELECT_TYPE
 
 
 def qr_code_text_dialogue(update: Update, _: CallbackContext) -> int:
