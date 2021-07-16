@@ -93,17 +93,6 @@ def image_compression_get_image(update: Update, _: CallbackContext) -> int:
     return COMPRESSION_RATE
 
 
-def image_compression_get_compression_rate(update: Update, _: CallbackContext) -> int:
-    """
-    Read the district if success ask for date
-    """
-    file = update.message.photo[-1].get_file()
-    global IMAGE_TO_COMPRESS
-    IMAGE_TO_COMPRESS = Image.open(requests.get(file.file_path, stream=True).raw)
-
-    return SELECT_TYPE
-
-
 def compress_image_dialogue(update: Update, _: CallbackContext) -> int:
     """
     Select the input option
