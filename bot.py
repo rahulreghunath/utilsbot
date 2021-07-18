@@ -39,9 +39,9 @@ def start(update: Update, _: CallbackContext) -> int:
     user = update.message.from_user
     logger.info("User %s Started the conversation.", user.first_name)
     update.message.reply_text(
-        'Hi☺️ \n'
+        'Hello☺️\n'
         '/qrcode to create a custom qr code\n'
-        '/compress to compress image\n',
+        '/compress to compress image\n'
         '/instagram to download instagram video and image',
         reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True),
     )
