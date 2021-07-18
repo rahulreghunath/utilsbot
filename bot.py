@@ -42,7 +42,7 @@ def start(update: Update, _: CallbackContext) -> int:
         'Hello☺️\n'
         '/qrcode to create a custom qr code\n'
         '/compress to compress image\n'
-        '/instagram to download instagram video and image',
+        '/instagram to download instagram photos & videos',
         reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True),
     )
 
@@ -146,27 +146,28 @@ def instagram_download_response(update: Update, _: CallbackContext) -> int:
         )
         if data.status_code == 200:
             results = data.json()['graphql']['shortcode_media']
-            if 'edge_sidecar_to_children' in results:
-                for node in results['edge_sidecar_to_children']['edges']:
-                    if not node['node']['is_video']:
-                        update.message.reply_photo(node['node']['display_url'])
-                    else:
-                        update.message.reply_video(node['node']['video_url'])
-            else:
-                if not results['is_video']:
-                    update.message.reply_photo(results['display_url'])
-                else:
-                    update.message.reply_video(results['video_url'])
-            return SELECT_TYPE
-        else:
-            update.message.reply_text(
-                'Server busy. Please try after some time',
-                reply_markup=ReplyKeyboardRemove(),
-            )
-        update.message.reply_text(
-            'Something went wrong. Please try after some time',
-            reply_markup=ReplyKeyboardRemove(),
-        )
+            print(results)
+        #     if 'edge_sidecar_to_children' in results:
+        #         for node in results['edge_sidecar_to_children']['edges']:
+        #             if not node['node']['is_video']:
+        #                 update.message.reply_photo(node['node']['display_url'])
+        #             else:
+        #                 update.message.reply_video(node['node']['video_url'])
+        #     else:
+        #         if not results['is_video']:
+        #             update.message.reply_photo(results['display_url'])
+        #         else:
+        #             update.message.reply_video(results['video_url'])
+        #     return SELECT_TYPE
+        # else:
+        #     update.message.reply_text(
+        #         'Server busy. Please try after some time',
+        #         reply_markup=ReplyKeyboardRemove(),
+        #     )
+        # update.message.reply_text(
+        #     'Something went wrong. Please try after some time',
+        #     reply_markup=ReplyKeyboardRemove(),
+        # )
     else:
         update.message.reply_text(
             'Enter correct url',
