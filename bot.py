@@ -145,8 +145,8 @@ def instagram_download_response(update: Update, _: CallbackContext) -> int:
             headers=headers
         )
         if data.status_code == 200:
-            results = data.json()
-            print(results)
+            # results = data.json()
+            print(data)
         #     if 'edge_sidecar_to_children' in results:
         #         for node in results['edge_sidecar_to_children']['edges']:
         #             if not node['node']['is_video']:
