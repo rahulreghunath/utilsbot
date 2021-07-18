@@ -145,7 +145,7 @@ def instagram_download_response(update: Update, _: CallbackContext) -> int:
             headers=headers
         )
         if data.status_code == 200:
-            results = data.json()['graphql']['shortcode_media']
+            results = data.json()
             print(results)
         #     if 'edge_sidecar_to_children' in results:
         #         for node in results['edge_sidecar_to_children']['edges']:
