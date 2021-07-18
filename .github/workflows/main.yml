@@ -35,4 +35,5 @@ jobs:
             cd utilsbot
             git pull origin master
             /home/ubuntu/utilsbot/venv/bin/pip install -r requirments.txt
-
+            supervisorctl restart utilbot
+            supervisorctl status

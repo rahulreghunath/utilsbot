@@ -35,14 +35,14 @@ INSTAGRAM_URL, SELECT_TYPE, RESTART, COMPRESSION_RATE, QR_CODE_TEXT_INPUT, COMPR
 
 # Conversation Start
 def start(update: Update, _: CallbackContext) -> int:
-    reply_keyboard = [['/qrcode', '/compress', '/instagram']]
+    reply_keyboard = [['/qrcode', '/compress']]
     user = update.message.from_user
     logger.info("User %s Started the conversation.", user.first_name)
     update.message.reply_text(
         'Hello☺️\n'
         '/qrcode to create a custom qr code\n'
-        '/compress to compress image\n'
-        '/instagram to download instagram photos & videos',
+        '/compress to compress image\n',
+        # '/instagram to download instagram photos & videos',
         reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True),
     )
 
